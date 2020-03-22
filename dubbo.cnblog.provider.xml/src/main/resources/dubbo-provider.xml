@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans        
+    http://www.springframework.org/schema/beans/spring-beans.xsd        
+    http://code.alibabatech.com/schema/dubbo        
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 指定web服务名字 -->
+	<dubbo:application name="dubbo-cnblog-provider" />
+	
+	<!-- 声明服务注册中心 -->
+	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183" group="dubbo" />
+	
+	<!-- 协议 -->
+	<dubbo:protocol name="dubbo" port="20882" />
+
+	<!-- 暴露你的服务地址 -->
+	<!-- 可以不加id（其实不太清楚有没有id这个属性） -->
+	<dubbo:service ref="userService" interface="dubbo.cnblog.api.UserService" />
+	<dubbo:service ref="anotherService" interface="dubbo.cnblog.jiekou.AnotherService" />
+	<dubbo:service ref="tracingService" interface="dubbo.cnblog.api.TracingService" />
+
+</beans>

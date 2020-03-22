@@ -1,0 +1,5 @@
+customFilter=dubbo.cnblog.consumer.backup.component.CustomFilter
+poetryFilter1=dubbo.cnblog.consumer.backup.component.PoetryFilter1
+poetryFilter2=dubbo.cnblog.consumer.backup.component.PoetryFilter2
+poetryFilter3=dubbo.cnblog.consumer.backup.component.PoetryFilter3
+poetryFilter4=dubbo.cnblog.consumer.backup.component.PoetryFilter4

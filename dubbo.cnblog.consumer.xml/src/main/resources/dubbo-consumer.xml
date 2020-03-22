@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans        
+    http://www.springframework.org/schema/beans/spring-beans.xsd        
+    http://code.alibabatech.com/schema/dubbo        
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!-- 指定web服务名字 -->
+	<dubbo:application name="dubbo-cnblog-consumer" />
+	
+	<!-- 声明服务注册中心 -->
+	<dubbo:registry protocol="zookeeper" address="127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183" />
+
+	<!-- dubbo:reference不加id，无法启动，报bean of type 'xxx' that could not be found -->
+	<!-- 暴露你的服务地址 -->
+	<dubbo:reference id="userService" interface="dubbo.cnblog.api.UserService" filter="logFilter" />
+
+	<!-- 暴露你的服务地址 -->
+<!-- 	<dubbo:reference id="mainJiekou" interface="dubbo.cnblog.jiekou.AnotherService" group="provider" /> -->
+<!-- 	<dubbo:reference id="backupJiekou" interface="dubbo.cnblog.jiekou.AnotherService" group="provider-backup" /> -->
+	<!-- 任意组 -->
+<!-- 	<dubbo:reference id="autoJiekou" interface="dubbo.cnblog.jiekou.AnotherService" group="*" /> -->
+
+	<dubbo:reference id="mergedJiekou" interface="dubbo.cnblog.jiekou.AnotherService" group="*" merger="true" />
+<!-- 	<dubbo:reference id="mergedJiekou" interface="dubbo.cnblog.jiekou.AnotherService" group="*"> -->
+<!-- 		<dubbo:method name="runAway" merger="myMerger" /> -->
+<!-- 	</dubbo:reference> -->
+
+	<!-- 暴露你的服务地址 -->
+	<dubbo:reference id="tracingService" interface="dubbo.cnblog.api.TracingService" filter="traceIdFilter" check="false" />
+
+</beans>

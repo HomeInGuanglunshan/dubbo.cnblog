@@ -1,0 +1,3 @@
+myFilter=dubbo.cnblog.consumer.xml.component.MyFilter
+logFilter=dubbo.cnblog.consumer.xml.component.LogFilter
+traceIdFilter=dubbo.cnblog.consumer.xml.component.TraceIdFilter

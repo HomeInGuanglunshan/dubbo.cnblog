@@ -1,0 +1,2 @@
+remoteAddrFilter=dubbo.cnblog.provider.backup.component.RemoteAddrFilter
+remoteHostFilter=dubbo.cnblog.provider.backup.component.RemoteHostFilter

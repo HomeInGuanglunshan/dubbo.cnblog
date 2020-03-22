@@ -1,0 +1,3 @@
+route://0.0.0.0/dubbo.cnblog.api.UserService?category=routers&dynamic=false&enabled=true&force=false&name=kkk&priority=0&router=condition&rule= => provider.port != 20881&runtime=false
+
+route://0.0.0.0/dubbo.cnblog.api.UserService?category=routers&compatible_config=true&dynamic=false&enabled=true&force=true&name=null&priority=0&router=condition&rule= => provider.port != 20881&runtime=false 
